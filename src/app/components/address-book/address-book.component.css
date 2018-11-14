@@ -1,0 +1,79 @@
+
+/* Editing Header */
+header{
+    padding: 17px 21px;
+    width: 100%;
+    background: #004B8B;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+h1.header {
+    font-family: 'Merienda';
+    font-size: 2rem;
+    padding-top: 10px;
+
+  }
+
+  /* end of header */
+
+  
+  /* start input fields in pop up model */
+
+  input.inputEdit{
+    width: 100%;
+    border: 1px solid #002646;
+    height: 3rem;
+    padding-left: 2.4rem;
+    font: 300 2.0rem 'Open Sans', sans-serif;
+    color: #003e80;
+    background: #fff;
+    border-radius: 5px;
+    margin-bottom: 1.0rem;
+  }
+  Button.customize{
+    border: 1px solid #fff;
+    height: 3rem;
+    width:100%;
+  }
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-family: 'Merienda';
+
+}
+
+  #custom-search-input {
+    margin:0;
+    margin-top: 10px;
+    padding: 0;
+}
+ 
+#custom-search-input .search-query {
+    width:100%;
+    padding-right: 3px;
+    padding-left: 15px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 0;
+}
+ 
+#custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: absolute;
+    right:0;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color:#D9230F;
+    cursor: unset;
+    z-index: 2;
+}
+ 

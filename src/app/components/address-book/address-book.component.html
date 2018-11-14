@@ -1,0 +1,145 @@
+<!-- start header -->
+<header>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-4">
+        <h1 class="header"> <span class="fa fa-book"></span>Address Book</h1>
+      </div>
+
+      <div class="col-md-8">
+        <div id="custom-search-input">
+          <div class="input-group">
+            <input [(ngModel)]="searchText" type="text" class="search-query form-control" placeholder="Search" />
+            <span class="input-group-btn">
+              <button type="button" disabled>
+                <span class="fa fa-search"></span>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</header>
+<!-- End header -->
+    
+
+<!-- Table  -->
+<section class="address-book">
+  <div class="container">
+    <div class="row">
+      <!-- table -->
+      <div class="col-md-12">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped " id="searchTextResults">
+            <thead>
+              <tr>
+
+                <th>Firstname</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>NickName</th>
+                <th>Gender</th>
+                <th>action</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor=" let item of address | filter:searchText  let i=index">
+                <td> {{ item.name }} </td>
+                <td> {{ item.phone }} </td>
+                <td> {{ item.email }} </td>
+                <td> {{ item.nickname }} </td>
+                <td> {{ item.gender }} </td>
+                <td class="text-center"> <button type="button" class="btn btn-danger btn-sm" (click)='onDelete(i)'>Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#myModal"> Add new Conatct </button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- End of table -->
+
+<!-- Modal pop up -->
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">ِAdd New contact</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <!-- Form  -->
+        <form #f="ngForm" (ngSubmit)="addAddressbook(f)">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input required class="inputEdit" type="text" [(ngModel)]="address.name" name="name" #Name="ngModel"
+                  placeholder="FullName:">
+                <div class="alert alert-danger" *ngIf="Name.touched && !Name.valid">
+                  <div *ngIf="Name.errors.required">
+                    Name is required
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <input class="inputEdit" required type="number" placeholder="phone:" [(ngModel)]="address.phone" name="phone"
+                  #Phone="ngModel">
+
+                <div class="alert alert-danger" *ngIf="Phone.touched && !Phone.valid">
+                  <div *ngIf="Phone.errors.required">
+                    Phone is required
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="form-group">
+                <input class="inputEdit" type="email" placeholder="Email:" [(ngModel)]="address.email" name="email">
+              </div>
+              <div class="form-group">
+                <input class="inputEdit" type="text" placeholder="NickName:" [(ngModel)]="address.nickname" name="nickname">
+              </div>
+              <div class="form-group">
+                <input class="inputEdit" type="text" placeholder="Gender:" [(ngModel)]="address.gender" name="gender">
+              </div>
+              <div class="form-group">
+                <button class="inputEdit" type="submit" class="btn btn-primary customize" value="submit"> Add Contact
+                </button>
+              </div>
+            </div>
+
+
+          </div>
+        </form>
+
+        <!-- End of Form  -->
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
